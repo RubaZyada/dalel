@@ -8,8 +8,6 @@ import 'package:dalel/features/search/presentation/search_screen.dart';
 import 'package:dalel/features/splash/presentation/splash_screen.dart';
 import 'package:go_router/go_router.dart';
 
-
-
 final GoRouter router = GoRouter(
   initialLocation: "/splash",
   routes: [
