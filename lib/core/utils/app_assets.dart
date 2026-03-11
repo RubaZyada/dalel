@@ -1,10 +1,11 @@
-// ignore_for_file: prefer_single_quotes
+// ignore_for_file: prefer_single_quotes, constant_identifier_names
 class Assets {
   //private constructor to prevent instantiation
   Assets._();
   
   /// Assets for Onboarding1
   /// assets/images/onboarding1.png
+  
   static const String Onboarding1 = "assets/images/onboarding1.png";
 
   /// Assets for Onboarding2
@@ -21,7 +22,7 @@ class Assets {
 
   /// Assets for Succces order icon
   /// assets/images/Succces order icon.png
-  static const String Succces_order_icon = "assets/images/Succces order icon.png";
+  static const String SucccesOrderIcon = "assets/images/Succces order icon.png";
 
   /// Assets for Svg1
   /// assets/images/svg1.svg
