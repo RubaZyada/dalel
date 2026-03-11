@@ -1,3 +1,5 @@
+import 'package:dalel/core/utils/app_string.dart';
+import 'package:dalel/core/utils/app_text_style.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -5,6 +7,12 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      body: Center(
+        child: Text(AppStrings.appName,
+        style: CustomTextStyles.pacifico400style64,),
+        
+      ),
+    );
   }
 }
