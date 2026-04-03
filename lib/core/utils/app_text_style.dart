@@ -6,10 +6,10 @@ abstract class CustomTextStyles {
     fontSize: 64,
     fontWeight: FontWeight.w400,
     color: AppColors.deepBrown,
-    fontFamily: "Pacifico",
+    fontFamily: "pacifico",
   );
   static final poppins600style28 = TextStyle(
-    fontSize: 28,
+    fontSize: 24,
     fontWeight: FontWeight.w600,
     color: AppColors.black,
     fontFamily: "Poppins",
@@ -45,8 +45,8 @@ abstract class CustomTextStyles {
     fontFamily: "Poppins",
   );
   static final poppins400style20 = TextStyle(
-    fontSize: 20,
-    fontWeight: FontWeight.w400,
+    fontSize: 25,
+    fontWeight: FontWeight.w500,
     color: AppColors.deepBrown,
     fontFamily: "Poppins",
   );

@@ -7,4 +7,5 @@ class AppRoutes {
   static const cart = "/cart";
   static const search = "/search";
   static const profile = "/profile";
+  static const onboarding = "/onboarding";
 }
