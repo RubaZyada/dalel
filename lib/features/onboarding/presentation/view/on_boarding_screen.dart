@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class OnBoardingScreen extends StatefulWidget {
-  OnBoardingScreen({super.key});
+  const OnBoardingScreen({super.key});
 
   @override
   State<OnBoardingScreen> createState() => _OnBoardingScreenState();
@@ -16,6 +16,7 @@ class OnBoardingScreen extends StatefulWidget {
 class _OnBoardingScreenState extends State<OnBoardingScreen> {
   final PageController _controller = PageController(initialPage: 0);
   int currentIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,8 +24,10 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
         padding: const EdgeInsets.symmetric(horizontal: 8.0),
         child: ListView(
           children: [
-            SizedBox(height: 20),
-            customnavbar(),
+            const SizedBox(height: 20),
+            customnavbar( onTap: (){
+              context.go("/login");
+            },),
             OnboardingBody(
               controller: _controller,
               onPageChanged: (index) {
@@ -33,22 +36,40 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 });
               },
             ),
-            CustomBtn(
-              text: currentIndex == onBordingData.length - 1
-                  ? AppStrings.loginNow
-                  : AppStrings.next,
-              onPressed: () {
-                if (currentIndex == onBordingData.length - 1) {
-                  context.go("/signup");
-                } else {
-                  _controller.nextPage(
-                    duration: const Duration(milliseconds: 500),
-                    curve: Curves.easeInOut,
-                  );
-                }
-              },
-            ),
-            SizedBox(height: 26),
+            currentIndex == onBordingData.length - 1
+                ? Column(
+                    children: [
+                      CustomBtn(
+                        text: AppStrings.createAccount,
+                        onPressed: () {
+                          context.go("/signup");
+                        },
+                      ),
+                      const SizedBox(height: 10),
+                      GestureDetector(
+                        onTap: () {
+                          context.go("/login");
+                        },
+                        child: const Text(
+                          "Login Now",
+                          style: TextStyle(
+                            color: Colors.grey,
+                            decoration: TextDecoration.underline,
+                          ),
+                        ),
+                      ),
+                    ],
+                  )
+                : CustomBtn(
+                    text: AppStrings.next,
+                    onPressed: () {
+                      _controller.nextPage(
+                        duration: const Duration(milliseconds: 500),
+                        curve: Curves.easeInOut,
+                      );
+                    },
+                  ),
+            const SizedBox(height: 26),
           ],
         ),
       ),
