@@ -34,6 +34,6 @@ class _SplashScreenState extends State<SplashScreen> {
 
 void delayedNavigation(context) {
   Future.delayed(const Duration(seconds: 3), () {
-    GoRouter.of(context).go('/onboarding');
+    GoRouter.of(context).pushReplacement ('/onboarding');
   });
 }

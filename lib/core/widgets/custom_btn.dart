@@ -1,10 +1,10 @@
 import 'package:dalel/core/utils/app_color.dart';
-import 'package:dalel/core/utils/app_string.dart';
 import 'package:flutter/material.dart';
 
 class CustomBtn extends StatelessWidget {
-   const CustomBtn({super.key, this.color});
+   const CustomBtn({super.key, this.color, required this.text});
  final Color ?color;
+final String  text;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -21,7 +21,7 @@ class CustomBtn extends StatelessWidget {
             ),
            // padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
           ),
-          child:  Text(AppStrings.next ,style: TextStyle(color: Colors.white,fontSize: 16),),
+          child:  Text( text ,style: TextStyle(color: Colors.white,fontSize: 16),),
         ),
       ),
     );

@@ -9,18 +9,29 @@ class OnboardingBody extends StatelessWidget {
   final PageController _controller = PageController();
   @override
   Widget build(BuildContext context) {
-    return Expanded(
+    return SizedBox(
+      height: 570,
       child: PageView.builder(
         controller: _controller,
         itemBuilder: (context, index) {
           return Column(
             children: [
-              Image.asset(Assets.Onboarding1),
+              Container(
+                height:290 ,
+                width: 343,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage(Assets.Onboarding1),
+                  fit: BoxFit.fill
+                  ),
+                ),
+                ),
               SizedBox(height: 24),
               CustomSmoothPageIndicator(controller: _controller),
              Padding(
                padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 24),
                child: Text(
+                maxLines: 2,
                   'Explore The history with Dalel in a smart way',
                   style: CustomTextStyles.poppins500style24.copyWith(fontWeight: FontWeight.bold),
                   textAlign: TextAlign.center,
@@ -30,6 +41,7 @@ class OnboardingBody extends StatelessWidget {
               Padding(
                padding: const EdgeInsets.symmetric(horizontal: 20),
                child: Text(
+                maxLines: 2,
                   'Using our app’s history libraries you can find many historical periods',
                   style: CustomTextStyles.poppins300style16,
                   textAlign: TextAlign.center,

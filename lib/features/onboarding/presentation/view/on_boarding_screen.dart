@@ -1,3 +1,4 @@
+import 'package:dalel/core/utils/app_string.dart';
 import 'package:dalel/core/widgets/custom_btn.dart';
 import 'package:dalel/features/onboarding/presentation/widgets/custom_nav_bar.dart';
 import 'package:dalel/features/onboarding/presentation/widgets/onBoarding_body.dart';
@@ -9,14 +10,17 @@ class OnBoardingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          SizedBox(height: 20),
-          customnavbar(),
-          OnboardingBody(),
-          CustomBtn(),
-          SizedBox(height: 26),
-        ],
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+        child: ListView(
+          children: [
+            SizedBox(height: 20),
+            customnavbar(),
+            OnboardingBody(),
+            CustomBtn(text: AppStrings.next),
+            SizedBox(height: 26),
+          ],
+        ),
       ),
     );
   }
