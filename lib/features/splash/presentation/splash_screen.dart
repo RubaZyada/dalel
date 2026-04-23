@@ -1,5 +1,7 @@
 // ignore_for_file: use_build_context_synchronously
 
+import 'package:dalel/core/database/cache/cashe_helper.dart';
+import 'package:dalel/core/services/service_locator.dart';
 import 'package:dalel/core/utils/app_string.dart';
 import 'package:dalel/core/utils/app_text_style.dart';
 import 'package:flutter/material.dart';
@@ -15,8 +17,15 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
+    bool isONBoardingVisited =
+       getIt<CacheHelper>().getData(key: "isOnBoardingVisited") ?? false;
+    if (isONBoardingVisited== true) {
+      delayedNavigation(context, '/login');
+    } else {
+      delayedNavigation(context, '/onboarding');
+    }
+
     super.initState();
-    delayedNavigation(context);
   }
 
   @override
@@ -32,8 +41,8 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 }
 
-void delayedNavigation(context) {
+void delayedNavigation(context, path) {
   Future.delayed(const Duration(seconds: 3), () {
-    GoRouter.of(context).pushReplacement ('/onboarding');
+    GoRouter.of(context).pushReplacement(path);
   });
 }

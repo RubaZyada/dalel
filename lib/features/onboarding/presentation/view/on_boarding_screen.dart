@@ -1,3 +1,5 @@
+import 'package:dalel/core/database/cache/cashe_helper.dart';
+import 'package:dalel/core/services/service_locator.dart';
 import 'package:dalel/core/utils/app_string.dart';
 import 'package:dalel/core/widgets/custom_btn.dart';
 import 'package:dalel/features/onboarding/data/models/on_bording_model.dart';
@@ -26,6 +28,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
           children: [
             const SizedBox(height: 20),
             customnavbar( onTap: (){
+              getIt<CacheHelper>().saveData(key: "isOnBoardingVisited", value: true);
               context.go("/login");
             },),
             OnboardingBody(
@@ -42,12 +45,14 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                       CustomBtn(
                         text: AppStrings.createAccount,
                         onPressed: () {
+                          getIt<CacheHelper>().saveData(key: "isOnBoardingVisited", value: true);
                           context.go("/signup");
                         },
                       ),
                       const SizedBox(height: 10),
                       GestureDetector(
                         onTap: () {
+                          getIt<CacheHelper>().saveData(key: "isOnBoardingVisited", value: true);
                           context.go("/login");
                         },
                         child: const Text(
