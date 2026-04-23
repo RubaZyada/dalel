@@ -16,7 +16,7 @@ final GoRouter router = GoRouter(
 
     GoRoute(
       path: "/onboarding",
-      builder: (context, state) => const OnBoardingScreen(),
+      builder: (context, state) =>  OnBoardingScreen(),
     ),
     GoRoute(path: "/login", builder: (context, state) => const LoginScreen()),
     GoRoute(path: "/signup", builder: (context, state) => const SignupScreen()),

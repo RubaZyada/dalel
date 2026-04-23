@@ -5,14 +5,17 @@ import 'package:dalel/features/onboarding/presentation/widgets/custom_smooth_pag
 import 'package:flutter/material.dart';
 
 class OnboardingBody extends StatelessWidget {
-  OnboardingBody({super.key});
-  final PageController _controller = PageController();
+ const  OnboardingBody({super.key, required this.controller, this.onPageChanged});
+
+  final PageController controller;
+  final Function(int)? onPageChanged;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 570,
       child: PageView.builder(
-        controller: _controller,
+        onPageChanged: onPageChanged,
+        controller: controller,
         itemCount: onBordingData.length,
         itemBuilder: (context, index) {
           return Column(
@@ -28,7 +31,7 @@ class OnboardingBody extends StatelessWidget {
                 ),
                 ),
               SizedBox(height: 24),
-              CustomSmoothPageIndicator(controller: _controller),
+              CustomSmoothPageIndicator(controller: controller),
              Padding(
                padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 24),
                child: Text(

@@ -2,9 +2,10 @@ import 'package:dalel/core/utils/app_color.dart';
 import 'package:flutter/material.dart';
 
 class CustomBtn extends StatelessWidget {
-   const CustomBtn({super.key, this.color, required this.text});
+   const CustomBtn({super.key, this.color, required this.text, this.onPressed});
  final Color ?color;
 final String  text;
+final VoidCallback ?onPressed;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -13,7 +14,7 @@ final String  text;
       child: Padding(
         padding: const EdgeInsets.fromLTRB(10,0,10,0),
         child: ElevatedButton(
-          onPressed: () {},
+          onPressed: onPressed,
           style: ElevatedButton.styleFrom(
             backgroundColor: color??AppColors.primaryColor,
             shape: RoundedRectangleBorder(
